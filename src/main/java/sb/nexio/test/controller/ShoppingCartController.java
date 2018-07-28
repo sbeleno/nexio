@@ -25,6 +25,13 @@ import sb.nexio.test.exception.StatusException;
 import sb.nexio.test.service.UserService;
 import sb.nexio.test.service.ShoppinCartService;
 
+/**
+ * Controller qui permet d'ajouter les produits 
+ * au panier, permet d'enlever le produit du panier
+ * et permet de consulterles details du panier. 
+ * @author Shirley Beleno
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class ShoppingCartController {

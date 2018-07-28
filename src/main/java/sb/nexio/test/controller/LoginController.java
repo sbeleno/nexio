@@ -21,6 +21,11 @@ import sb.nexio.test.domain.extra.ResultBuilder;
 import sb.nexio.test.domain.extra.UserApp;
 import sb.nexio.test.security.ConsSecurity;
 
+/**
+ * Permet l'access d'un utilisateur à partir du nom et mot de passe. 
+ * @author Shirley Beleno
+ * 
+ */
 @RestController
 public class LoginController {
 
@@ -52,6 +57,11 @@ public class LoginController {
 		}
 	}
 
+	/**
+	 * Génère un token valide
+	 * @param username d'utilisateur authentifié
+	 * @return token généré
+	 */
 	public synchronized String getToken(String username) {
 		String token = Jwts.builder().setIssuedAt(new Date()).setIssuer(ConsSecurity.ISSUER_INFO).setSubject(username)
 				.setExpiration(new Date(System.currentTimeMillis() + ConsSecurity.TOKEN_EXPIRATION_TIME))
