@@ -8,6 +8,7 @@ package sb.nexio.test.domain;
 public class OrderDetail {
 		
 	private Long idProduct;
+	private Long idOrder;
 	private String name;
 	private Integer quantity;
 	private Double price;
@@ -17,8 +18,9 @@ public class OrderDetail {
 		
 	}
 	
-	public OrderDetail(Long idProduct, String name, Integer quantity, Double price, Double subtotal) {
+	public OrderDetail(Long idProduct, Long idOrder, String name, Integer quantity, Double price, Double subtotal) {
 		this.idProduct = idProduct;
+		this.idOrder = idOrder;
 		this.name = name;
 		this.quantity = quantity;
 		this.price = price;
@@ -31,8 +33,16 @@ public class OrderDetail {
 	
 	public void setIdProduct(Long idProduct) {
 		this.idProduct = idProduct;
-	}	
+	}		
 	
+	public Long getIdOrder() {
+		return idOrder;
+	}
+
+	public void setIdOrder(Long idOrder) {
+		this.idOrder = idOrder;
+	}
+
 	public String getName() {
 		return name;
 	}
