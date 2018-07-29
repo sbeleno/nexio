@@ -19,7 +19,7 @@ import sb.nexio.test.domain.Product;
 import sb.nexio.test.service.ProductService;
 
 /**
- * Endpoints qui permettent d'obtenir une liste de produits 
+ * Contoller qui permet d'obtenir une liste de produits 
  * et le detail d'un produit en fonction de son identifiant.
  * @author Shirley Beleno
  *

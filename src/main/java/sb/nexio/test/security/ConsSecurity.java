@@ -1,5 +1,10 @@
 package sb.nexio.test.security;
 
+/**
+ * Constantes de sécurité
+ * @author Shirley Beleno
+ *
+ */
 public class ConsSecurity {
 
 	// Spring Security
@@ -9,8 +14,7 @@ public class ConsSecurity {
 	
 	// JWT
 	public static final String ISSUER_INFO = "belenoshirley";
-	//cambiar clave
-	public static final String SUPER_SECRET_KEY = "nyE3xi#7iQ#zMW-SPqw2[#Q!|-bZta)I#I_m(==LdpqH0+2Kp/bUUKW*lEqwIZoX*1";
+	public static final String SUPER_SECRET_KEY = "nyE3xi#7iQ#";
 	public static final long TOKEN_EXPIRATION_TIME = 216_000_000; // 10 day
 	
 }

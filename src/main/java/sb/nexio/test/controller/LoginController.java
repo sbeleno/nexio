@@ -22,7 +22,7 @@ import sb.nexio.test.domain.extra.UserApp;
 import sb.nexio.test.security.ConsSecurity;
 
 /**
- * Permet l'access d'un utilisateur à partir du nom et mot de passe. 
+ * Permet l'access d'un utilisateur à partir de l'username et le mot de passe. 
  * @author Shirley Beleno
  * 
  */
@@ -49,7 +49,7 @@ public class LoginController {
 						.put("X-Info", ((UserApp) principal).getInformation().toString()).getPlayload(),headers,
 						HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>(new ResultBuilder("X-Error", "No se pudo completar la autenticacion"),
+				return new ResponseEntity<>(new ResultBuilder("X-Error", "On n'a pas pu compléter l'authentification"),
 						HttpStatus.UNAUTHORIZED);
 			}
 		} catch (Exception e) {

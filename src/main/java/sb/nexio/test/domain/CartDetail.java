@@ -3,6 +3,11 @@ package sb.nexio.test.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Object pour afficher les details du panier
+ * @author Shirley Beleno
+ *
+ */
 public class CartDetail {
 	
 	private List<OrderDetail> orders = new ArrayList<OrderDetail>();

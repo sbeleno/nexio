@@ -4,6 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Entité qui gère les produits.
+ * @author Shirley Beleno
+ *
+ */
 @Entity(name="product")
 public class Product {
 	@Id

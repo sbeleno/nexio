@@ -3,8 +3,6 @@ package sb.nexio.test.controller;
 import java.security.Principal;
 import java.util.List;
 
-import javax.validation.ConstraintViolationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +24,10 @@ import sb.nexio.test.service.UserService;
 import sb.nexio.test.service.ShoppinCartService;
 
 /**
- * Controller qui permet d'ajouter les produits 
- * au panier, permet d'enlever le produit du panier
- * et permet de consulterles details du panier. 
+ * Controller qui permet d'ajouter et d'enlever les produits du panier,
+ * permet de consulter les details du panier. 
  * @author Shirley Beleno
- *
+ *  
  */
 @RestController
 @RequestMapping("/api")
@@ -45,13 +42,13 @@ public class ShoppingCartController {
 	private ShoppinCartService shoppingCartService;
 	
 	@RequestMapping(value = "/shoppingCarts", method = { RequestMethod.POST })
-	@ExceptionHandler(ConstraintViolationException.class)
 	public ResponseEntity<?> addToCart(@RequestBody Order order, Principal principal) {
 		
 		User user = userService.findByUsername(principal.getName());
 		order.setIdUser(user.getId());
 		try {
 			shoppingCartService.add(order);
+			logger.info("Nous avons ajouté le produit au panier");
 		} catch (StatusException e) {
 			return new ResponseEntity<>(e.getMessage(), e.getStatus());
 		}
@@ -64,6 +61,7 @@ public class ShoppingCartController {
 	public ResponseEntity<?> delete(@RequestParam("id") Long idOrder) {		
 		try {
 			shoppingCartService.delete(idOrder);
+			logger.info("Nous avons supprimé le produit au panier");
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (StatusException e) {
 			return new ResponseEntity<>(e.getMessage(), e.getStatus());
@@ -76,11 +74,11 @@ public class ShoppingCartController {
 		User user = userService.findByUsername(principal.getName());		
 		CartDetail cartDetail = shoppingCartService.findDetails(user.getId());		
 		
-		return cartDetail.getOrders().isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT):
-			new ResponseEntity<CartDetail>(cartDetail, HttpStatus.OK);		
+		if(cartDetail.getOrders().isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			logger.info("Détails des produits du panier");
+			return new ResponseEntity<CartDetail>(cartDetail, HttpStatus.OK);		
+		}			
 	}
-	
-	
-	
-
 }

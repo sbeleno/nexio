@@ -14,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Filtre pour vérifier si un utilisateur au moyen d'un token valide a l'accès
+ * @author Shirley Beleno
+ *
+ */
 public class AppAuthorizationFilter extends BasicAuthenticationFilter {
 
 	public AppAuthorizationFilter(AuthenticationManager authManager) {
@@ -33,6 +38,11 @@ public class AppAuthorizationFilter extends BasicAuthenticationFilter {
 		chain.doFilter(req, res);
 	}
 
+	/**
+	 * Permet de convertir un token en objet utilisateur
+	 * @param request
+	 * @return
+	 */
 	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
 		String token = request.getHeader(ConsSecurity.HEADER_AUTHORIZACION_KEY);
 		logger.info(token+" Url: "+request.getRequestURI());

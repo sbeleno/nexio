@@ -19,6 +19,13 @@ public class App
     	SpringApplication.run(App.class, args);
     }
     
+    /**
+     * Bean pour initialiser la base de données avec des produits et utilisateurs
+     * @param repository
+     * @param byBCryptPasswordEncoder
+     * @param userRepository
+     * @return
+     */
     @Bean
 	public CommandLineRunner loadData(ProductRepository repository, BCryptPasswordEncoder byBCryptPasswordEncoder,
 			UserRepository userRepository) {

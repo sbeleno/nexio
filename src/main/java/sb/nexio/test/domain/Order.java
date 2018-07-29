@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
+/**
+ * Entité qui gère les commandes des produits
+ * @author Shirley Beleno
+ *
+ */
 @Entity(name = "order_product")
 public class Order implements Serializable{
 	
@@ -17,7 +22,6 @@ public class Order implements Serializable{
 	private Long id;
 	private Long idProduct;
 	private Long idUser;
-	@Min(1)
 	private Integer quantity;
 
 	public Long getId() {

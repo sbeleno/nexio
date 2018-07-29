@@ -5,6 +5,12 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
+/**
+ * Outil qui permet de créer une réponse json 
+ * à partir des clés et des valeurs.
+ * @author Shirley Beleno
+ *
+ */
 public class ResultBuilder {
 	
 	private Map<String, Object> playload = new HashMap<>();
@@ -18,6 +24,11 @@ public class ResultBuilder {
 		return this;
 	}
 
+	/**
+	 * Permet de convertir le map des clés et 
+	 * des valeurs à Json au moyen de l'objet Gson
+	 * @return 
+	 */
 	public String getPlayload() {
 		try {
 			return new Gson().toJson(playload);

@@ -3,6 +3,11 @@ package sb.nexio.test.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Entité utilisateur pour vérifier l'authentification.
+ * @author Shirley Beleno
+ *
+ */
 @Entity(name="user")
 public class User {
 	@Id

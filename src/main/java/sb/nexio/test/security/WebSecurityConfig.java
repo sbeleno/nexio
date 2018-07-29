@@ -25,6 +25,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		this.userService = userService;
 	}
 
+	/**
+	 * Bean de l'encodage au moyen d'une clé
+	 * @return
+	 */
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -40,7 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
 	}
 	
-		
+	/**
+	 * 	Autorise et nie l'accès à certaines requests.
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
@@ -50,6 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				.addFilter(new AppAuthorizationFilter(authenticationManager()));
 	}
 	
+	/**
+	 * Ajoute les méthodes HTTP qui sont permises dans l'application
+	 */
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**").allowedMethods("PUT", "GET", "POST", "DELETE");
