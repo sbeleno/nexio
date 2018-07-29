@@ -34,8 +34,8 @@ import sb.nexio.test.security.ConsSecurity;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application-integration-test.properties")
-public class ShoppingCartControllerIntegrationTest {
+@TestPropertySource(locations = "classpath:application-test.properties")
+public class ShoppingCartControllerIntTest {
 	
 	@Autowired
 	private MockMvc mvc;
